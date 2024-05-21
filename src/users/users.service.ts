@@ -12,7 +12,12 @@ export class UsersService {
   ) {}
 
   findByEmail(email: string) {
-    return this.db.user.findFirst({ where: { email } });
+    try {
+      return this.db.user.findFirst({ where: { email } });
+    } catch (error) {
+      console.error('Error fetching user:', error);
+      throw error;
+    }
   }
 
   async create(
