@@ -42,8 +42,6 @@ export class UsersService {
     } catch (error) {
       console.error('Error fetching user:', error);
       throw error;
-    } finally {
-      await this.db.$disconnect();
     }
   }
 }

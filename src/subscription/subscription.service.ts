@@ -32,11 +32,16 @@ export class SubscriptionService {
 
   // **********************************************GET SUBSCRIPTION */
   async getSubscription(userId: string) {
-    return this.db.subscription.findFirst({
-      where: {
-        userId,
-      },
-    });
+    try {
+      return this.db.subscription.findFirst({
+        where: {
+          userId,
+        },
+      });
+    } catch (error) {
+      console.error('Error fetching user:', error);
+      throw error;
+    }
   }
 
   // **********************************************PATCH SUBSCRIPTION */

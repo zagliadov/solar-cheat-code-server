@@ -15,7 +15,7 @@ export class UsersController {
   @ApiOkResponse({
     type: UserDto,
   })
-  getSubscription(@SessionInfo() session: GetSessionInfoDto): Promise<UserDto> {
+  getUser(@SessionInfo() session: GetSessionInfoDto): Promise<UserDto> {
     return this.usersService.getUser(session.id);
   }
 }
