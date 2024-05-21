@@ -30,4 +30,20 @@ export class UsersService {
 
     return user;
   }
+
+  // **********************************************GET USER INFO*/
+  async getUser(userId: string) {
+    try {
+      return await this.db.user.findFirst({
+        where: {
+          id: userId,
+        },
+      });
+    } catch (error) {
+      console.error('Error fetching user:', error);
+      throw error;
+    } finally {
+      await this.db.$disconnect();
+    }
+  }
 }
