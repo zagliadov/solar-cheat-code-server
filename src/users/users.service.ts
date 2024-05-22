@@ -11,13 +11,8 @@ export class UsersService {
     private subscriptionService: SubscriptionService,
   ) {}
 
-  findByEmail(email: string) {
-    try {
-      return this.db.user.findFirst({ where: { email } });
-    } catch (error) {
-      console.error('Error fetching user:', error);
-      throw error;
-    }
+  async findByEmail(email: string) {
+    return await this.db.user.findFirst({ where: { email } });
   }
 
   async create(

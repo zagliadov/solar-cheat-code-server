@@ -7,6 +7,9 @@ import { UsersModule } from './users/users.module';
 import { AccountModule } from './account/account.module';
 import { SubscriptionModule } from './subscription/subscription.module';
 import { VimeoModule } from './vimeo/vimeo.module';
+import { VideoController } from './video/video.controller';
+import { VideoService } from './video/video.service';
+import { VideoModule } from './video/video.module';
 
 @Module({
   imports: [
@@ -16,8 +19,9 @@ import { VimeoModule } from './vimeo/vimeo.module';
     AccountModule,
     SubscriptionModule,
     VimeoModule,
+    VideoModule,
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [AppController, VideoController],
+  providers: [AppService, VideoService],
 })
 export class AppModule {}
